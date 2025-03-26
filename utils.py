@@ -41,31 +41,41 @@ def fetch_news(company):
     return []
 
 def get_news_articles(company_name):
-    """Scrapes news articles related to the company from Google Search."""
-    search_url = f"https://www.google.com/search?q={company_name}+news"
-    headers = {"User-Agent": "Mozilla/5.0"}
+    """Scrapes news articles related to the company from BBC Search."""
+    
+    search_url = f"https://www.bbc.com/search?q={company_name}"
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    }
 
     response = requests.get(search_url, headers=headers)
+    
     if response.status_code != 200:
+        print(f"Failed to fetch articles. Status Code: {response.status_code}")
+        return []
+
+    if not response.text.strip():
+        print("Empty response received from BBC News")
         return []
 
     soup = BeautifulSoup(response.text, "html.parser")
     articles = []
 
-    for result in soup.find_all("div", class_="tF2Cxc"):
-        title = result.find("h3").text if result.find("h3") else "No Title"
-        link = result.find("a")["href"] if result.find("a") else "#"
+    titles = soup.find_all(class_='sc-87075214-3 cXFiLO')
+    all_urls=[]
+    links = soup.select('a[href^="/news/articles/"]')
+    base_url="https://www.bbc.com"
+    for link in links:
+        href=link.get('href')
+        if href:
+            all_urls.append(base_url+href)
+    
 
-        summary = summarize_article(link)
-        sentiment = analyze_sentiment(summary)
-        topics = extract_topics(summary)
-
+    # Ensure both lists have the same length
+    for i in range(min(len(titles), len(all_urls))):
         article_data = {
-            "title": title,
-            "link": link,
-            "summary": summary,
-            "sentiment": sentiment,
-            "topics": topics,
+            "title": titles[i].text.strip(),
+            "url": all_urls[i],
         }
         articles.append(article_data)
 
