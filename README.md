@@ -14,13 +14,13 @@ This application extracts key details from multiple news articles related to a g
 
 ## ✨ Features
 
-**✅News Extraction**: Extracts news articles from various sources using BeautifulSoup
-**✅Sentiment Analysis**: Analyzes sentiment of news articles (positive, negative, neutral)
-**✅Comparative Analysis**: Compares sentiment across articles and identifies common themes
-**✅Topic Extraction**: Identifies key topics for each article
-**✅Text-to-Speech**: Converts summarized content to Hindi speech
-**✅Web Interface**: Simple UI built with Streamlit
-**✅API**: Backend APIs for frontend communication
+- **✅News Extraction**: Extracts news articles from various sources using BeautifulSoup
+- **✅Sentiment Analysis**: Analyzes sentiment of news articles (positive, negative, neutral)
+- **✅Comparative Analysis**: Compares sentiment across articles and identifies common themes
+- **✅Topic Extraction**: Identifies key topics for each article
+- **✅Text-to-Speech**: Converts summarized content to Hindi speech
+- **✅Web Interface**: Simple UI built with Streamlit
+- **✅API**: Backend APIs for frontend communication
 
 ## 📂 Project Structure
 
@@ -98,8 +98,8 @@ The application exposes several API endpoints for communication between the fron
 
 ## 🚀 Future Improvements
 
-🚀 Caching Mechanism: Reduce API calls and enhance performance.
-🚀 Advanced NLP Models: Implement transformer-based models for better sentiment accuracy.
-🚀 User Authentication: Save user history and allow personalization.
-🚀 Data Visualization: Add interactive charts for comparative analysis.
-🚀 Multi-Language Support: Expand TTS to other languages beyond Hindi.
+- **🚀 Caching Mechanism**: Reduce API calls and enhance performance.
+- **🚀 Advanced NLP Models**: Implement transformer-based models for better sentiment accuracy.
+- **🚀 User Authentication**: Save user history and allow personalization.
+- **🚀 Data Visualization**: Add interactive charts for comparative analysis.
+- **🚀 Multi-Language Support**: Expand TTS to other languages beyond Hindi.
