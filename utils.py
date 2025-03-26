@@ -16,30 +16,6 @@ nlp = spacy.load("en_core_web_sm")
 analyzer = SentimentIntensityAnalyzer()
 sentiment_model = pipeline("sentiment-analysis")
 
-# News API Configuration
-API_KEY = "fbc2d9cbd685427fae8214e7bf89643f"  # Replace with actual NewsAPI key
-NEWS_URL = "https://newsapi.org/v2/everything"
-
-def fetch_news(company):
-    """Fetch latest news articles related to a company using NewsAPI."""
-    params = {
-        "q": company,
-        "language": "en",
-        "sortBy": "publishedAt",
-        "apiKey": API_KEY
-    }
-
-    response = requests.get(NEWS_URL, params=params)
-    data = response.json()
-
-    if data.get("status") == "ok":
-        articles = [
-            {"title": article["title"], "url": article["url"]}
-            for article in data.get("articles", [])[:10]
-        ]
-        return articles
-    return []
-
 def get_news_articles(company_name):
     """Scrapes news articles related to the company from BBC Search."""
     

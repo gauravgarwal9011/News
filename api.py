@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from utils import fetch_news, summarize_article, analyze_sentiment, comparative_analysis, generate_hindi_tts
+from utils import get_news_articles, summarize_article, analyze_sentiment, comparative_analysis, generate_hindi_tts
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -15,7 +15,7 @@ def get_news(data: NewsRequest):
     Returns structured sentiment data.
     """
     company_name = data.company_name
-    articles = fetch_news(company_name)
+    articles = get_news_articles(company_name)
 
     if not articles:
         return {"error": "No articles found"}

@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import fetch_news, summarize_article, analyze_sentiment, comparative_analysis, generate_hindi_tts, extract_topics
+from utils import get_news_articles, summarize_article, analyze_sentiment, comparative_analysis, generate_hindi_tts, extract_topics
 
 st.title("📰 News Summarization & Sentiment Analysis with Hindi TTS")
 st.markdown("### Enter a company name to fetch news articles and analyze sentiment.")
@@ -11,7 +11,7 @@ if company_name:
     st.markdown(f"### Fetching News for: {company_name}")
 
     # Step 1: Get News Articles
-    articles = fetch_news(company_name)
+    articles = get_news_articles(company_name)
     if not articles:
         st.warning("No articles found. Try another company name.")
     else:
