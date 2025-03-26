@@ -1,0 +1,17 @@
+streamlit
+requests
+beautifulsoup4
+newspaper3k
+nltk
+gtts
+sumy
+deep_translator
+transformers
+lxml[html_clean]
+lxml_html_clean
+vaderSentiment
+textblob
+torch
+spacy
+en_core_web_sm @ https://huggingface.co/spacy/en_core_web_sm/resolve/main/en_core_web_sm-any-py3-none-any.whl
+fastapi
