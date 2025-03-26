@@ -126,9 +126,12 @@ def comparative_analysis(articles):
         }
         comparisons.append(comparison)
 
+    final_sentiment = max(sentiment_counts, key=sentiment_counts.get)
+
     return {
         "Sentiment Distribution": dict(sentiment_counts),
-        "Coverage Differences": comparisons
+        "Coverage Differences": comparisons,
+        "final sentiments": f"The Latest news about the company is mostly {final_sentiment.upper()}"
     }
 
 def generate_hindi_tts(text, filename="hindi_speech.mp3"):
