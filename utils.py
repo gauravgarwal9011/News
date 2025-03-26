@@ -47,7 +47,7 @@ def get_news_articles(company_name):
             all_urls.append(base_url+href)
     
 
-    # Ensure both lists have the same length
+    ### Ensure both lists have the same length
     for i in range(min(len(titles), len(all_urls))):
         article_data = {
             "title": titles[i].text.strip(),
