@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-# Define input model
+### Define input model
 class NewsRequest(BaseModel):
     company_name: str
 
